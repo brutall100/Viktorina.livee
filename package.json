@@ -1,0 +1,24 @@
+{
+  "name": "viktorina",
+  "version": "1.0.0",
+  "description": "Interactive",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brutall100/Viktorina.Live.git"
+  },
+  "author": "Aldas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brutall100/Viktorina.Live/issues"
+  },
+  "homepage": "https://github.com/brutall100/Viktorina.Live#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.0.0"
+  }
+}

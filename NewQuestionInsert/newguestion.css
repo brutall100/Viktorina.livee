@@ -1,0 +1,90 @@
+ *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+ }
+
+ body {
+  background: #ffffff url(/viktorina.live/images/background/cover0.jpg) center center fixed;
+  background-size: cover;
+}
+
+ .imported-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+  .main {
+    /* background: #ffffff url(/viktorina.live/images/background/cover0.jpg);
+    background-size: cover; */
+    /* -ms-transform: rotate(1deg); IE 9 */
+    /* -webkit-transform: rotate(1deg); Safari */
+    /* -moz-transform: rotate(1deg); Firefox */
+    /* transform: rotate(1deg); */
+    display: flex;
+    width: 60vw;
+    height: 50vh;
+    margin: 8% auto;
+    justify-content: center;
+    align-content: center;
+    /* border: 1px solid red; */
+  }
+
+
+  .main-form {
+    width: 50%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin: 1px 0;
+    
+  }
+
+  input[type="text"],
+  textarea {
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1px solid rgb(28, 26, 26);
+  }
+
+  input[type="submit"] {
+    font-weight: bold;
+    background-color: rgb(144,94,241);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+
+/* questionwaiting.php */
+  table {
+    width: 50%;
+    border-collapse: collapse;
+  }
+
+  table, td, th {
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  th {
+    text-align: left;
+  }
+
+ 
+  
+  
+  
