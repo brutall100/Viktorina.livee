@@ -104,31 +104,36 @@ function generateBonusPoints() {
   const randomHour = Math.floor(Math.random() * 24);
   if (currentHour === randomHour) {
     const randomNumber = Math.floor(Math.random() * 5);
-    if (randomNumber === 0) {
-      return 10;
-    } else if (randomNumber === 1) {
-      return 20;
-    } else if (randomNumber === 2) {
-      return 30;
-    } else if (randomNumber === 3) {
-      return 40;
-    } else if (randomNumber === 4) {
-      return 50;
-    }
+    return (randomNumber + 1) * 10;
   } else {
     return 0;
   }
 }
 
-const pointsElement = document.getElementById('bonus-points');
-const imageElement = document.getElementById('litai-img');
-const bonusPoint = generateBonusPoints();
+const pointsElement = document.getElementById('bonus-points')
+const imageElement = document.getElementById('litai-img')
+const bonusPoint = generateBonusPoints()
+
 if (bonusPoint > 0) {
-  pointsElement.innerHTML = ` + Bonus: ${bonusPoint}`;
-  imageElement.innerHTML = `<img src="/viktorina.live/images/ImgLitai/${bonusPoint}Lt.png" alt="${bonusPoint} Lt">`; // 
+  pointsElement.innerHTML = ` + Bonus: ${bonusPoint}`
+  let images = "";
+  if(bonusPoint === 10 || bonusPoint === 20 || bonusPoint === 50) {
+      images += `<img src="/images/ImgLitai/${bonusPoint}Lt.png" alt="${bonusPoint} Litų">`
+  }else if(bonusPoint === 30) {
+       {
+        images += `<img src="/images/ImgLitai/10Lt.png" alt="Dešimt litų">`
+        images += `<img src="/images/ImgLitai/20Lt.png" alt="Dvidešimt litų">`
+      }
+  }else if(bonusPoint === 40) {
+      for (let i = 0; i < 2; i++) {
+        images += `<img src="/images/ImgLitai/20Lt.png" alt="Dvidešimt litų">`
+      }
+  }
+  imageElement.innerHTML = images
 } else {
-  pointsElement.style.display = "none";
-}  
+  pointsElement.style.display = "none"
+}
+
 
 
 
@@ -143,7 +148,7 @@ function generateAndDisplayRandomPoint() {
     litoVerte = "Litas";
   
     const image1Element = document.createElement("img");
-    image1Element.src = "/viktorina.live/images/ImgLitai/1Lt.png";
+    image1Element.src = "/images/ImgLitai/1Lt.png";
     image1Element.alt = "Klausimo verte vienas Litas";
     image1Element.classList.add("on-off-litai"); // Add the new class here
     document.getElementById("litai-img").appendChild(image1Element);
@@ -153,13 +158,13 @@ function generateAndDisplayRandomPoint() {
     litoVerte = "Litai";
 
     const image1Element = document.createElement("img");
-    image1Element.src = "/viktorina.live/images/ImgLitai/1Lt.png";
+    image1Element.src = "/images/ImgLitai/1Lt.png";
     image1Element.alt = "1 Lt";
     image1Element.classList.add("on-off-litai1"); // Add the new class here
     document.getElementById("litai-img").appendChild(image1Element);
 
     const image2Element = document.createElement("img");
-    image2Element.src = "/viktorina.live/images/ImgLitai/1Lt.png";
+    image2Element.src = "/images/ImgLitai/1Lt.png";
     image2Element.alt = "1 Lt";
     image1Element.classList.add("on-off-litai"); // Add the new class here
     document.getElementById("litai-img").appendChild(image2Element);
@@ -169,13 +174,13 @@ function generateAndDisplayRandomPoint() {
 
     // Display multiple images
     const image1Element = document.createElement("img");
-    image1Element.src = "/viktorina.live/images/ImgLitai/1Lt.png";
+    image1Element.src = "/images/ImgLitai/1Lt.png";
     image1Element.alt = "1 Lt";
     image1Element.classList.add("on-off-litai"); // Add the new class here
     document.getElementById("litai-img").appendChild(image1Element);
 
     const image2Element = document.createElement("img");
-    image2Element.src = "/viktorina.live/images/ImgLitai/2Lt.png";
+    image2Element.src = "/images/ImgLitai/2Lt.png";
     image2Element.alt = "1 Lt";
     image1Element.classList.add("on-off-litai"); // Add the new class here
     document.getElementById("litai-img").appendChild(image2Element);
@@ -185,13 +190,13 @@ function generateAndDisplayRandomPoint() {
 
     // Display multiple images
     const image1Element = document.createElement("img");
-    image1Element.src = "/viktorina.live/images/ImgLitai/2Lt.png";
+    image1Element.src = "/images/ImgLitai/2Lt.png";
     image1Element.alt = "1 Lt";
     image1Element.classList.add("on-off-litai"); // Add the new class here
     document.getElementById("litai-img").appendChild(image1Element);
 
     const image2Element = document.createElement("img");
-    image2Element.src = "/viktorina.live/images/ImgLitai/2Lt.png";
+    image2Element.src = "/images/ImgLitai/2Lt.png";
     image2Element.alt = "1 Lt";
     image1Element.classList.add("on-off-litai"); // Add the new class here
     document.getElementById("litai-img").appendChild(image2Element);
@@ -200,7 +205,7 @@ function generateAndDisplayRandomPoint() {
     litoVerte = "Litai";
   
     const image1Element = document.createElement("img");
-    image1Element.src = "/viktorina.live/images/ImgLitai/5Lt.png";
+    image1Element.src = "/images/ImgLitai/5Lt.png";
     image1Element.alt = "1 Lt";
     image1Element.classList.add("new-class1"); // Add the new class here
     document.getElementById("litai-img").appendChild(image1Element);
