@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/aldas/Viktorina.live/NewQuestionInsert/">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
     <title>Naujo klausimo įrašymas</title>
-    <link rel="stylesheet" type="text/css" href="/headerstyle.css" />
-    <link rel="stylesheet" type="text/css" href="newguestion.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost/aldas/Viktorina.live/headerstyle.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost/aldas/Viktorina.live/newguestion.css" />
+    
   </head>
   <body>
     <header class="header">
       <ul>
         <img
           class="logo"
-          src="/viktorina.live/images/icons/viktorina_logo.png" />
+          src="http://localhost/aldas/Viktorina.live/images/icons/viktorina_logo.png" />
         <div>
           <li><a href="/index.html">Viktorina</a></li>
           <li><a href="#news">Naujienos</a></li>
           <li>
-            <a href="/viktorina.live/NewQuestionInsert/newquestionindex.html"
+            <a href="/NewQuestionInsert/newquestionindex.html"
               >Irašyti klausimą</a
             >
           </li>
@@ -37,7 +41,7 @@
 
     <main class="main">
       <div class="main-form">
-        <form action="phpquestion.php" method="post">
+        <form action="http://localhost/aldas/Viktorina.live/NewQuestionInsert/phpquestion.php" method="post">
           <label for="name">Autorius:</label>
           <input type="text" id="name" name="name" />
           
@@ -53,38 +57,6 @@
       </div>
     </main>
 
-    <!-- <?php
-    // Connect to the database
-    $host = 'localhost';
-    $user = 'root';
-    $password = '';
-    $dbname = 'viktorina';
-
-    $conn = mysqli_connect($host, $user, $password, $dbname);
-
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
-    // Select the data from the database
-    $sql = "SELECT user, question, answer FROM viktorina.question_answer";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        // Output the data
-        while($row = mysqli_fetch_assoc($result)) {
-            echo "User: " . $row['user'] . "<br>";
-            echo "Question: " . $row['question'] . "<br>";
-            echo "Answer: " . $row['answer'] . "<br><br>";
-        }
-    } else {
-        echo "0 results";
-    }
-
-    // Close the connection
-    mysqli_close($conn);
-  ?> -->
     <footer class="footer">
       <object
         data="/Footer/footer.html"
