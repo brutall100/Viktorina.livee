@@ -18,6 +18,12 @@
   th {
     text-align: left;
   }
+  .vote_count.positive {
+  color: green;
+}
+.vote_count.negative {
+  color: red;
+}
 
   </style>
    <!-- Meta refresh kas 5 min -->
@@ -33,9 +39,10 @@
       <th>User</th>
       <th>Question</th>
       <th>Answer</th>
+      <th>Upvote</th>
+      <th>Downvote</th>
+      <th>Vote Count</th>
     </tr>
-
-    
     <?php
       // Connect to the database
       $host = 'localhost';
@@ -51,10 +58,9 @@
       }
 
       // Select the data from the database
-      $sql = "SELECT id, user, question, answer FROM viktorina.question_answer";
+      $sql = "SELECT id, user, question, answer, vote_count FROM viktorina.question_answer";
       $result = mysqli_query($conn, $sql);
 
-      $counter = 1;
       if (mysqli_num_rows($result) > 0) {
           // Output the data
           while($row = mysqli_fetch_assoc($result)) {
@@ -65,9 +71,11 @@
             echo "<td>" . $row['answer'] . "</td>";
             echo "<td>
             <button class='upvote' data-id='". $row['id'] ."'>Upvote</button>
+            </td>";
+            echo "<td>
             <button class='downvote' data-id='". $row['id'] ."'>Downvote</button>
             </td>";
-            $counter++;
+            echo "<td class='vote_count " . ($row['vote_count'] >= 0 ? 'positive' : 'negative') . "'>" . $row['vote_count'] . "</td>";
         }
         
       } else {
@@ -78,6 +86,7 @@
       mysqli_close($conn);
     ?>
   </table>
+
 </body>
 </html>
 
@@ -91,14 +100,15 @@ document.querySelectorAll('.upvote').forEach(function(button) {
       })
       .then(function(text) {
         console.log(text);
-        // Do something with the response
+        setTimeout(function(){
+          location.reload();
+        }, 3000);
       })
       .catch(function(error) {
         console.log('Request failed', error);
       });
   });
 });
-
 
 document.querySelectorAll('.downvote').forEach(function(button) {
   button.addEventListener('click', function() {
@@ -109,14 +119,15 @@ document.querySelectorAll('.downvote').forEach(function(button) {
       })
       .then(function(text) {
         console.log(text);
-        // Do something with the response
+        setTimeout(function(){
+          location.reload();
+        }, 3000);
       })
       .catch(function(error) {
         console.log('Request failed', error);
       });
   });
 });
-
 
 </script>
 

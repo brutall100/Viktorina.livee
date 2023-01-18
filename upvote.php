@@ -16,7 +16,7 @@
   $id = $_GET['id'];
 
   // Create the SQL query
-  $sql = "UPDATE viktorina.question_answer SET upvotes = upvotes + 1 WHERE id = $id";
+  $sql = "UPDATE viktorina.question_answer SET vote_count = vote_count + 1 WHERE id = $id";
 
   // Execute the query
   if (mysqli_query($conn, $sql)) {
