@@ -112,14 +112,14 @@ modal.style.display = "block";
 span.onclick = function() {
   modal.style.display = "none";
   setTimeout(function(){
-        location.href = "http://localhost/aldas/Viktorina.live/NewQuestionInsert/newquestionindex.html";
+        location.href = "http://localhost/aldas/Viktorina.live/newquestionindex.html";
     }, 2000);
 }
 
 // Close the modal after 5 seconds
 setTimeout(function(){
     modal.style.display = "none";
-    location.href = "http://localhost/aldas/Viktorina.live/NewQuestionInsert/newquestionindex.html";
+    location.href = "http://localhost/aldas/Viktorina.live/newquestionindex.html";
 }, 5000);
 
 </script>
