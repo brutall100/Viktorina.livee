@@ -1,3 +1,10 @@
+<!-- <?php
+session_start();
+if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+    header("Location: http://localhost/aldas/Viktorina.live/REGILOGI/regilogi.html");
+    exit();
+}
+?> -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,12 +46,20 @@
 
 
         </div>
-        <div>   <!-- User interface turetu buti -->  
-          <button>User_A</button>
+
+        <!-- User interface should be --> 
+        <div> 
+          <!-- <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                echo "Welcome, registered user";
+            } else {
+                echo "User";
+            }
+            ?> -->
         </div>
+
+        
       </ul>
     </header>
-
     <section>
       <div class="litas-container">
         <div id="litai-img"></div>
