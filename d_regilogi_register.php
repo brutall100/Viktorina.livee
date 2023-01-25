@@ -1,6 +1,5 @@
 <?php
 
-// Connect to the database
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -55,10 +54,10 @@ if(!mysqli_stmt_prepare($stmt,$sql)){
 }else{
   mysqli_stmt_bind_param($stmt,"ssss",$nick_name,$user_email,$hashed_password,$registration_date);
   mysqli_stmt_execute($stmt);
-  // echo "Registration Successful";
   echo "<script>alert('Registration Successful');</script>";
-
+  $_SESSION['username'] = $nick_name;
 }
+
 
 // Close the database connection
 mysqli_close($conn);
@@ -70,8 +69,9 @@ session_start();
 $_SESSION['logged_in'] = true;
 
 // Redirect the user to the index page
-header("Location: http://localhost/aldas/Viktorina.live/index.html");
+header("Location: http://localhost/aldas/Viktorina.live/a_index.php");
 exit();
+?>
 
 
 

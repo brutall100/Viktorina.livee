@@ -1,8 +1,8 @@
 <html>
 <head>
   <title>My Page</title>
-  <link rel="stylesheet" type="text/css" href="http://localhost/aldas/Viktorina.live/headerstyle.css" />
-  <link rel="stylesheet" type="text/css" href="http://localhost/aldas/Viktorina.live/newguestion.css" />
+  <link rel="stylesheet" type="text/css" href="http://localhost/aldas/Viktorina.live/aa_headerstyle.css" />
+  <link rel="stylesheet" type="text/css" href="http://localhost/aldas/Viktorina.live/b_newguestion.css" />
   <!-- Style laikinai bus perkeltas virsun -->
   <style>  
       table {
@@ -30,7 +30,25 @@
   <meta http-equiv="refresh" content="300">
 </head>
 <body>
-  <h1>Welcome to my page</h1>
+    <header class="header">
+          <ul>
+            <img class="logo" src="http://localhost/aldas/Viktorina.live/images/icons/viktorina_logo.png" />
+            <div>
+              <li><a href="http://localhost/aldas/Viktorina.live/a_index.php">Viktorina</a></li>
+              <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php">Naujienos</a></li>
+              <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php">Irašyti klausimą</a></li>
+            </div> 
+            <div>
+              <?php
+                if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true && isset($_SESSION['username'])) {
+                  echo "Welcome, " . $_SESSION['username'];
+                }else{
+                  echo "Esate neprisijunges";
+                }
+              ?>
+            </div>  
+          </ul>
+    </header>
 
 
   <table style="margin: 0 auto;">
@@ -94,7 +112,7 @@
 document.querySelectorAll('.upvote').forEach(function(button) {
   button.addEventListener('click', function() {
     var id = this.dataset.id;
-    fetch('upvote.php?id=' + id)
+    fetch('c_upvote.php?id=' + id)
       .then(function(response) {
         return response.text();
       })
@@ -113,7 +131,7 @@ document.querySelectorAll('.upvote').forEach(function(button) {
 document.querySelectorAll('.downvote').forEach(function(button) {
   button.addEventListener('click', function() {
     var id = this.dataset.id;
-    fetch('downvote.php?id=' + id)
+    fetch('c_downvote.php?id=' + id)
       .then(function(response) {
         return response.text();
       })

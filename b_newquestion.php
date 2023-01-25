@@ -16,7 +16,7 @@ if (!$conn) {
 $name = $_POST['name'];
 $question = $_POST['question'];
 $answer = $_POST['answer'];
-$data = date("Y-m-d"); // current date
+$date_inserted = date("Y-m-d"); // current date
 $ip = $_SERVER['REMOTE_ADDR'];
 
 $message = "Naujas klausimas sukurtas sėkmingai. Klausimas irašytas į laikinają duomenų bazę. Kur bus apdorojamas.";
@@ -29,7 +29,7 @@ if (empty($question) || empty($answer)) {
     echo $message;
 } else {
     // Insert the data into the database
-    $sql = "INSERT INTO viktorina.question_answer (user, question, answer, data, ip) VALUES ('$name', '$question', '$answer', '$data','$ip')";
+    $sql = "INSERT INTO viktorina.question_answer (user, question, answer, 	date_inserted, ip) VALUES ('$name', '$question', '$answer', '$date_inserted','$ip')";
     if (mysqli_query($conn, $sql)) {
         echo $message;
     } else {
@@ -112,14 +112,14 @@ modal.style.display = "block";
 span.onclick = function() {
   modal.style.display = "none";
   setTimeout(function(){
-        location.href = "http://localhost/aldas/Viktorina.live/newquestionindex.html";
+        location.href = "http://localhost/aldas/Viktorina.live/b_newquestionindex.php";
     }, 2000);
 }
 
 // Close the modal after 5 seconds
 setTimeout(function(){
     modal.style.display = "none";
-    location.href = "http://localhost/aldas/Viktorina.live/newquestionindex.html";
+    location.href = "http://localhost/aldas/Viktorina.live/b_newquestionindex.php";
 }, 5000);
 
 </script>
