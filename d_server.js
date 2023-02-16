@@ -50,24 +50,31 @@ app.post('/login', (req, res) => {
 
 app.post('/register', (req, res) => {
   const { nick_name, user_email, user_password } = req.body;
-  // hash the user's password before storing it in the database
   bcrypt.hash(user_password, 10, (err, hashedPassword) => {
     if (err) throw err;
-    const currentDate = new Date().toISOString().slice(0, 20);// Get the current date in YYYY-MM-DD format
-    // create new user account with nick_name, user_email, hashedPassword, and registration_date
+    const currentDate = new Date().toISOString().slice(0, 20); // Get the current date in YYYY-MM-DD format
     const sql = `INSERT INTO super_users (nick_name, user_email, user_password, registration_date) VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s'))`;
 
     connection.query(sql, [nick_name, user_email, hashedPassword, currentDate], (err, result) => {
-      if (err) throw err;
-      // handle successful registration
-      res.redirect(`http://localhost/aldas/Viktorina.live/a_index.php?name=${nick_name}&email=${user_email}`);
+      if (err) {
+        if (err.code === 'ER_DUP_ENTRY') {
+          // handle duplicate entry error
+          res.send('User already exists');
+        } else {
+          // handle other errors
+          throw err;
+        }
+      } else {
+        // handle successful registration
+        res.redirect(`http://localhost/aldas/Viktorina.live/a_index.php?name=${nick_name}&email=${user_email}`);
+      }
     });
   });
 });
 
 
+
 app.listen(4000, () => {
   console.log('Server listening on port 4000');
 });
-
 
