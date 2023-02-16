@@ -85,12 +85,18 @@ app.get('/data', (req, res) => {
 
 setInterval(() => {
   refreshData(() => {});
-  // lita = Math.floor(Math.random() * 5) + 1;
-}, 60000);
+  }, 60000);
 
 app.listen(port, () => {
   console.log(`Serveris prisijunges on http://localhost:${port}`);
 });
+
+
+
+
+
+
+
 
 
 
