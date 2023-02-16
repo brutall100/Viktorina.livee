@@ -32,8 +32,16 @@
 <div id="dataContainer"></div>
 <div id="lita"></div>
 <div id="lita-bonus"></div>
-<h1>Welcome, <?php echo $_SESSION['user']['nick_name']; ?>!</h1>
-<p>Your email address is <?php echo $_SESSION['user']['user_email']; ?></p>
+<?php
+if (isset($_GET['name']) && isset($_GET['email'])) {
+  $name = $_GET['name'];
+  $email = $_GET['email'];
+  echo "Welcome, $name! Your email is $email.";
+} else {
+  echo "Welcome!";
+}
+?>
+
 
 <!-- bandymas -->
     <section>
