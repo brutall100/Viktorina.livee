@@ -41,6 +41,27 @@ if (isset($_GET['name']) && isset($_GET['email'])) {
   echo "Welcome!";
 }
 ?>
+<br/>
+<?php
+if (isset($_GET['name'])) {
+  $name = $_GET['name'];
+  $conn = mysqli_connect("localhost", "root", "", "viktorina");
+  $query = "SELECT user_lvl, litai_sum FROM super_users WHERE nick_name = '$name'";
+  $result = mysqli_query($conn, $query);
+  if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $level = $row['user_lvl'];
+    $points = $row['litai_sum'];
+    echo "Welcome, $name! Your current level is $level and you have $points points.";
+  } else {
+    echo "User not found!";
+  }
+  mysqli_close($conn);
+} else {
+  echo "Welcome!";
+}
+?>
+
 
 
 <!-- bandymas -->
