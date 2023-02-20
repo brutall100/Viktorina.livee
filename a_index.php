@@ -61,10 +61,8 @@ if (isset($_GET['name'])) {
   echo "Welcome!";
 }
 ?>
-
-
-
 <!-- bandymas -->
+
     <section>
       <div class="litas-container">
         <div class="litas-container-img" id="litai-img-bonus"></div>
