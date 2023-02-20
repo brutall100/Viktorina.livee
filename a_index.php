@@ -32,16 +32,7 @@
 <div id="dataContainer"></div>
 <div id="lita"></div>
 <div id="lita-bonus"></div>
-<?php
-if (isset($_GET['name']) && isset($_GET['email'])) {
-  $name = $_GET['name'];
-  $email = $_GET['email'];
-  echo "Welcome, $name! Your email is $email.";
-} else {
-  echo "Welcome!";
-}
-?>
-<br/>
+
 <?php
 if (isset($_GET['name'])) {
   $name = $_GET['name'];
@@ -53,6 +44,7 @@ if (isset($_GET['name'])) {
     $level = $row['user_lvl'];
     $points = $row['litai_sum'];
     echo "Welcome, $name! Your current level is $level and you have $points points.";
+    echo "<br><button onclick=\"window.location.href='statistic.php?name=$name'\">Logout</button>"; // Pass the nickname as a query parameter
   } else {
     echo "User not found!";
   }
@@ -61,6 +53,9 @@ if (isset($_GET['name'])) {
   echo "Welcome!";
 }
 ?>
+
+
+
 <!-- bandymas -->
 
     <section>
