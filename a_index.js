@@ -100,8 +100,6 @@ const generateAndDisplayRandomPoint = async (lita) => {
   }
   
   displayImage(imageSrc, litaiImg, "new-class1");
-
-  // Display the random point in the "points" element
   document.getElementById("points").innerHTML = `Verte: ${lita} ${litoVerte}&nbsp;  `;
 };
   
