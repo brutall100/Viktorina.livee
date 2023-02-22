@@ -1,7 +1,24 @@
+<?php
+session_start();
+
+// Store the name and level in the session if they are present in the GET request
+if (isset($_GET['name'])) {
+  $_SESSION['name'] = $_GET['name'];
+}
+if (isset($_GET['level'])) {
+  $_SESSION['level'] = $_GET['level'];
+}
+
+// Retrieve the name and level from the session
+$name = isset($_SESSION['name']) ? $_SESSION['name'] : "";
+$level = isset($_SESSION['level']) ? $_SESSION['level'] : "";
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- <base href="/aldas/Viktorina.live/NewQuestionInsert/"> -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,15 +36,10 @@
             <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php">Naujienos</a></li>
             <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php">Irašyti klausimą</a></li>
           </div> 
+          
           <div>
-            <?php
-              if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true && isset($_SESSION['username'])) {
-                echo "Welcome, " . $_SESSION['username'];
-              }else{
-                echo "Esate neprisijunges";
-              }
-            ?>
-          </div>  
+          </div> 
+
         </ul>
       </header>
     <!-- Registered user fiils automatic , not registered ip or useful info-->
@@ -36,17 +48,23 @@
       <div class="main-form">
         <form action="http://localhost/aldas/Viktorina.live/b_newquestion.php" method="post">
           <label for="name">Autorius:</label>
-          <input type="text" id="name" name="name" />
+          <input type="text" id="name" name="name" value="<?php echo $name; ?>" />
           
           <label for="question">Klausimas:</label>
           <input type="text" id="question" name="question" />
           
           <label for="answer">Atsakymas:</label>
           <input type="text" id="answer" name="answer" />
-          
 
           <input type="submit" value="Įrašyti" />
         </form>
+      </div>
+      <br/>       
+      <div class="main-info">
+        <?php if (!empty($name) && !empty($level)): ?>
+          <p>Autorius: <?php echo $name; ?></p>
+          <p>Lygis: <?php echo $level; ?></p>
+        <?php endif; ?>
       </div>
     </main>
 

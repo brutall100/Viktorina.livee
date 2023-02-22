@@ -1,20 +1,15 @@
 <?php
-// session_start();
+session_start();
 
-// if (isset($_POST['username']) && isset($_POST['password'])) {
-//   // Authenticate user and set session variables
-//   $_SESSION['username'] = $_POST['username'];
-//   $_SESSION['logged_in'] = true;
-  
-//   // Redirect to a protected page
-//   header('Location: protected_page.php');
-//   exit();
-// } else {
-//   // Show login form
-//   include('d_regilogi.php');
-// }
+if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level'])) {
+  $name = $_GET['name'];
+  $email = $_GET['email'];
+  $level = $_GET['level'];
+  echo "Welcome, $name! Your email is $email. Your level is $level.";
+} else {
+  echo "Welcome!";
+}
 ?>
-
 
 
 
@@ -41,7 +36,7 @@
         <div>
           <li><a href="http://localhost/aldas/Viktorina.live/a_index.php">Viktorina</a></li>
           <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php">Naujienos</a></li>
-          <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php">Irašyti klausimą</a></li>
+          <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php?name=<?php echo $name ?>&level=<?php echo $level ?>">Irašyti klausimą</a></li>
         </div> 
         <div>
          
@@ -54,16 +49,7 @@
 <div id="lita"></div>
 <div id="lita-bonus"></div>
 
-<?php
-if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level'])) {
-  $name = $_GET['name'];
-  $email = $_GET['email'];
-  $level = $_GET['level'];
-  echo "Welcome, $name! Your email is $email. Your level is $level.";
-} else {
-  echo "Welcome!";
-}
-?>
+
 
 
 <?php
