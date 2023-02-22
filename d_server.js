@@ -24,36 +24,32 @@ connection.connect((err) => {
 
 app.post('/login', (req, res) => {
   const { nick_name, user_password } = req.body;
-  // perform login validation with nick_name and user_password
   const sql = `SELECT * FROM super_users WHERE nick_name = ?`;
   connection.query(sql, [nick_name], (err, result) => {
     if (err) throw err;
     if (result.length > 0) {
-      // compare hashed password with user's input password
-      const { user_password: hashedPassword, user_email } = result[0];
+      const { user_password: hashedPassword, user_email, user_lvl } = result[0]; // get user_lvl from result
       bcrypt.compare(user_password, hashedPassword, (err, match) => {
         if (err) throw err;
         if (match) {
-          // handle successful login
-          res.redirect(`http://localhost/aldas/Viktorina.live/a_index.php?name=${nick_name}&email=${user_email}`);
+          res.redirect(`http://localhost/aldas/Viktorina.live/a_index.php?name=${nick_name}&email=${user_email}&level=${user_lvl}`);
         } else {
-          // handle login error
           res.send('Invalid username or password');
         }
       });
     } else {
-      // handle login error
       res.send('Invalid username or password');
     }
   });
 });
+
 
 app.post('/register', (req, res) => {
   const { nick_name, user_email, user_password } = req.body;
   bcrypt.hash(user_password, 10, (err, hashedPassword) => {
     if (err) throw err;
     const currentDate = new Date().toISOString().slice(0, 20); // Get the current date in YYYY-MM-DD format
-    const sql = `INSERT INTO super_users (nick_name, user_email, user_password, registration_date) VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s'))`;
+    const sql = `INSERT INTO super_users (nick_name, user_email, user_password, registration_date, user_lvl) VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s'), 0)`;
 
     connection.query(sql, [nick_name, user_email, hashedPassword, currentDate], (err, result) => {
       if (err) {
@@ -66,8 +62,9 @@ app.post('/register', (req, res) => {
         }
       } else {
         // handle successful registration
-        res.redirect(`http://localhost/aldas/Viktorina.live/a_index.php?name=${nick_name}&email=${user_email}`);
-      }
+        const user_lvl = 0; // set the user_lvl variable to 0
+        res.redirect(`http://localhost/aldas/Viktorina.live/a_index.php?name=${nick_name}&email=${user_email}&level=${user_lvl}`);
+      }      
     });
   });
 });

@@ -1,3 +1,24 @@
+<?php
+// session_start();
+
+// if (isset($_POST['username']) && isset($_POST['password'])) {
+//   // Authenticate user and set session variables
+//   $_SESSION['username'] = $_POST['username'];
+//   $_SESSION['logged_in'] = true;
+  
+//   // Redirect to a protected page
+//   header('Location: protected_page.php');
+//   exit();
+// } else {
+//   // Show login form
+//   include('d_regilogi.php');
+// }
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,6 +53,18 @@
 <div id="dataContainer"></div>
 <div id="lita"></div>
 <div id="lita-bonus"></div>
+
+<?php
+if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level'])) {
+  $name = $_GET['name'];
+  $email = $_GET['email'];
+  $level = $_GET['level'];
+  echo "Welcome, $name! Your email is $email. Your level is $level.";
+} else {
+  echo "Welcome!";
+}
+?>
+
 
 <?php
 if (isset($_GET['name'])) {

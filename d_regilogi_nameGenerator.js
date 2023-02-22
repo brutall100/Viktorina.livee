@@ -40,7 +40,7 @@ let secondNames = ["Uoga","Pupa","Super","Linksmuolis","Bambalinis","Kukli","Pap
 "purpurinė", "tamsusis", "tamsiai raudona", "tamsiai geltona", "tamsiai žalia", "tamsiukė", "sidabrinė", "auksinė", "bronzinė", 
 "persikų", "rožinė", "rožinė", "citrinų", "oranžinė", "žali", "oranžinė", "žali", "tamsiai citrinų", "persikutė", 
 "tamsiai rožinė", "rožė", "raudė", "geltona", "mėlynai", "purpuriukė", "citrinukė", 
-"mėlynai persikų", "mėlynojus", "mėlynė", "gintariukas", "žaliojo smaragdo", "žalias", "žalioji", 
+"mėlynai persikų", "mėlynojus", "mėlynė", "gintariukas", "žaliojo", "smaragdo", "žalias", "žalioji", 
 "turkio", "akmens", "granato", "rubino", "raudonoji", "topazo","Darbininkas",
 "Statybininkas","Medikas","Gydytojas","Mokytojas","Programuotojas","Inžinierius","Mokslininkas","Rašytojas","Dailininkas","Muzikantas","Fotografas",
 "Kirpėjas","Konditeris","Vairuotojas","Statybos","vadybininkas","Inžinierius","Analitikas","Verslininkas","Policininkas","Gaisrininkas",
