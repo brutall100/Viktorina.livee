@@ -47,7 +47,14 @@ if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level']) && is
           <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Irašyti klausimą</a></li>
         </div> 
         <div>
-         
+          <button id="btn-atsijungti">Atsijungti</button>
+        <!-- Rekes vistiek ta scripta nesdint is cia -->
+        <script>
+          const logoutButton = document.getElementById('btn-atsijungti');
+          logoutButton.addEventListener('click', () => {
+            window.location.href = 'http://localhost/aldas/Viktorina.live/statistic.php?name=<?php echo $name ?>';
+          });
+        </script>
         </div>  
       </ul>
     </header>
@@ -71,7 +78,7 @@ if (isset($_GET['name'])) {
     $level = $row['user_lvl'];
     $points = $row['litai_sum'];
     echo "Welcome, $name! Your current level is $level and you have $points points.";
-    echo "<br><button onclick=\"window.location.href='statistic.php?name=$name'\">Logout</button>"; // Pass the nickname as a query parameter
+    // echo "<br><button onclick=\"window.location.href='statistic.php?name=$name'\">Logout</button>"; // Pass the nickname as a query parameter
   } else {
     echo "User not found!";
   }

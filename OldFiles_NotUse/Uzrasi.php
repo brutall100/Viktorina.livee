@@ -1,5 +1,5 @@
 <!-- 1 uzduotis -->
-<!-- Sutvarkyri perejimus is vieno puslapio i kita, su prisijungimu -->
+<!--  -->
 
 <!-- 2 -->
 <!-- Pasidaryti svaria php ir javaScript registracijos kopija githube su pasijungimu i xampp -->
@@ -14,7 +14,7 @@
 <!-- a_index.php pradetu imti klausimus is pagrindines db -->
 
 <!-- 6 -->
-<!-- Padarti i statistic.php menesio top savaites top dienos top nusinulina 12 nakties -->
+<!-- Padarti i statistic.php menesio top savaites top dienos top  top 10 irasysiu klausimus nusinulina 12 nakties -->
 
 <!-- 7 -->
 <!-- Full screen api ,kad vaizdas butu per visa ekrana -->

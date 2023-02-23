@@ -53,17 +53,26 @@ $points = isset($_SESSION['points']) ? $_SESSION['points'] : "";
   <meta http-equiv="refresh" content="300">
 </head>
 <body>
-    <header class="header">
-          <ul>
-            <img class="logo" src="http://localhost/aldas/Viktorina.live/images/icons/viktorina_logo.png" />
-            <div>
-              <li><a href="http://localhost/aldas/Viktorina.live/a_index.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Viktorina</a></li>
-              <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Naujienos</a></li>
-              <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Irašyti klausimą</a></li>
-            </div> > 
-           
-          </ul>
-    </header>
+  <header class="header">
+    <ul>
+      <img class="logo" src="http://localhost/aldas/Viktorina.live/images/icons/viktorina_logo.png" />
+      <div>
+        <li><a href="http://localhost/aldas/Viktorina.live/a_index.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Viktorina</a></li>
+        <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Naujienos</a></li>
+        <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Irašyti klausimą</a></li>
+      </div> 
+      <div>
+        <button id="btn-atsijungti">Atsijungti</button>
+            <!-- Rekes vistiek ta scripta nesdint is cia -->
+        <script>
+             const logoutButton = document.getElementById('btn-atsijungti');
+             logoutButton.addEventListener('click', () => {
+              window.location.href = 'http://localhost/aldas/Viktorina.live/statistic.php?name=<?php echo $name ?>';
+            });
+        </script>
+      </div>  
+    </ul>
+  </header>
 
 
     <div class="main-info">
