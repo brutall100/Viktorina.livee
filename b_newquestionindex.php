@@ -1,17 +1,21 @@
 <?php
 session_start();
 
-// Store the name and level in the session if they are present in the GET request
+// Store the name and level and points in the session if they are present in the GET request
 if (isset($_GET['name'])) {
   $_SESSION['name'] = $_GET['name'];
 }
 if (isset($_GET['level'])) {
   $_SESSION['level'] = $_GET['level'];
 }
+if (isset($_GET['points'])) {
+  $_SESSION['points'] = $_GET['points'];
+}
 
-// Retrieve the name and level from the session
+// Retrieve the name and level and points from the session
 $name = isset($_SESSION['name']) ? $_SESSION['name'] : "";
 $level = isset($_SESSION['level']) ? $_SESSION['level'] : "";
+$points = isset($_SESSION['points']) ? $_SESSION['points'] : "";
 ?>
 
 
@@ -59,13 +63,15 @@ $level = isset($_SESSION['level']) ? $_SESSION['level'] : "";
           <input type="submit" value="Įrašyti" />
         </form>
       </div>
-      <br/>       
+            
       <div class="main-info">
-        <?php if (!empty($name) && !empty($level)): ?>
+        <?php if (!empty($name) && !empty($level) && !empty($points)): ?>
           <p>Autorius: <?php echo $name; ?></p>
           <p>Lygis: <?php echo $level; ?></p>
+          <p>Litai: <?php echo $points; ?></p>
         <?php endif; ?>
       </div>
+
     </main>
 
     <footer class="footer">

@@ -1,15 +1,28 @@
 <?php
+
+if (isset($_GET['name'])) {
+  $name = $_GET['name'];
+  $conn = mysqli_connect("localhost", "root", "", "viktorina");
+  $query = "SELECT user_lvl, litai_sum FROM super_users WHERE nick_name = '$name'";
+  $result = mysqli_query($conn, $query);
+  if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    $level = $row['user_lvl'];
+    $points = $row['litai_sum'];
+    mysqli_close($conn);
+  }
+}
+
 session_start();
 
-if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level'])) {
+if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level']) && isset($_GET['points'])) {
   $name = $_GET['name'];
   $email = $_GET['email'];
   $level = $_GET['level'];
-  echo "Welcome, $name! Your email is $email. Your level is $level.";
-} else {
-  echo "Welcome!";
+  $points = $_GET['points'];
 }
 ?>
+
 
 
 
@@ -36,7 +49,7 @@ if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level'])) {
         <div>
           <li><a href="http://localhost/aldas/Viktorina.live/a_index.php">Viktorina</a></li>
           <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php">Naujienos</a></li>
-          <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php?name=<?php echo $name ?>&level=<?php echo $level ?>">Irašyti klausimą</a></li>
+          <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Irašyti klausimą</a></li>
         </div> 
         <div>
          
