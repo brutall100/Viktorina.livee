@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_GET['name'])) {
   $name = $_GET['name'];
   $conn = mysqli_connect("localhost", "root", "", "viktorina");
@@ -23,10 +22,6 @@ if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level']) && is
 }
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,8 +42,8 @@ if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level']) && is
       <ul>
         <img class="logo" src="http://localhost/aldas/Viktorina.live/images/icons/viktorina_logo.png" />
         <div>
-          <li><a href="http://localhost/aldas/Viktorina.live/a_index.php">Viktorina</a></li>
-          <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php">Naujienos</a></li>
+          <li><a href="http://localhost/aldas/Viktorina.live/a_index.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Viktorina</a></li>
+          <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Naujienos</a></li>
           <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Irašyti klausimą</a></li>
         </div> 
         <div>

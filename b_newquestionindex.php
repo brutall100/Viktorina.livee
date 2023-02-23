@@ -36,10 +36,10 @@ $points = isset($_SESSION['points']) ? $_SESSION['points'] : "";
         <ul>
           <img class="logo" src="http://localhost/aldas/Viktorina.live/images/icons/viktorina_logo.png" />
           <div>
-            <li><a href="http://localhost/aldas/Viktorina.live/a_index.php">Viktorina</a></li>
-            <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php">Naujienos</a></li>
-            <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php">Irašyti klausimą</a></li>
-          </div> 
+            <li><a href="http://localhost/aldas/Viktorina.live/a_index.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Viktorina</a></li>
+            <li><a href="http://localhost/aldas/Viktorina.live/c_questionwaiting.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Naujienos</a></li>
+            <li><a href="http://localhost/aldas/Viktorina.live/b_newquestionindex.php?name=<?php echo $name ?>&level=<?php echo $level ?>&points=<?php echo $points ?>">Irašyti klausimą</a></li>
+          </div>  
           
           <div>
           </div> 
