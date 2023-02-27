@@ -1,3 +1,4 @@
+let data;
 async function fetchData() {
   try {
     const response = await axios.get('http://localhost:3000/data');
@@ -31,7 +32,7 @@ async function fetchData() {
 })();
 
 
-
+                      // Rodyti klausima
 async function displayQuestion(data) {
   const questionElement = document.getElementById("question");
   questionElement.innerText = data.data.question;
@@ -141,7 +142,72 @@ if (bonusLita > 0) {
 
 }
 
-  
+
+
+// Get the user data element
+const userDataElement = document.getElementById('user-data');
+
+// Get the user data from the data attributes
+const namep = userDataElement.dataset.name;
+const levelp = userDataElement.dataset.level;
+const pointsp = userDataElement.dataset.points;
+
+// Log the user data to the console for debugging purposes
+console.log('User data:', namep, levelp, pointsp);
+
+
+//               Atsakymas
+const answerForm = document.getElementById('answer-form');
+
+answerForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // prevent form submission
+  const answerInput = document.getElementById('answer-input');
+  const userAnswer = answerInput.value;
+
+  handleUserAnswer(userAnswer); // call the handleUserAnswer function with the user's answer as an argument
+
+  // clear the answer input field
+  answerInput.value = '';
+});
+
+
+
+async function handleUserAnswer(userAnswer) {
+  const data = await fetchData();
+  // Check if the answer property exists in the data object
+  if (!data || !data.data || !data.data.answer) {
+    console.error('Answer not found in data object');
+    return;
+  }
+  // Get the correct answer from the data object
+  const correctAnswer = data.data.answer.toLowerCase();
+
+  // Convert the user's answer to lowercase for case-insensitive comparison
+  const userAnswerLower = userAnswer.toLowerCase();
+
+  // Compare the user's answer with the correct answer
+  if (userAnswerLower === correctAnswer) {
+
+    // alert("Atsakymas  yra teisingas!");
+    document.getElementById('answer').textContent = `Atsakymas "${userAnswer}" yra teisingas! Atsake teisingai ${namep}`;
+
+    // Update the points and bonus points counters
+    // updatePoints(data.data.lita);
+    // updateBonusPoints(data.data.bonusLita);
+  } else {
+
+    // alert("Atsakymas yra neteisingas. Bandykite dar kartą.");
+    document.getElementById('answer').textContent = `Atsakymas "${userAnswer}" yra neteisingas. Bandykite dar kartą.`;
+  }
+
+  document.getElementById('answer-input').value = '';
+}
+
+
+
+
+
+
 
 const refreshPage = () => {
   setTimeout(() => {

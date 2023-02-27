@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+
 if (isset($_GET['name'])) {
   $name = $_GET['name'];
   $conn = mysqli_connect("localhost", "root", "", "viktorina");
@@ -10,17 +13,17 @@ if (isset($_GET['name'])) {
     $points = $row['litai_sum'];
     mysqli_close($conn);
   }
+  if (isset($_GET['level']) && isset($_GET['points'])) {
+    $level = $_GET['level'];
+    $points = $_GET['points'];
+  }
 }
 
-session_start();
-
-if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level']) && isset($_GET['points'])) {
-  $name = $_GET['name'];
-  $email = $_GET['email'];
-  $level = $_GET['level'];
-  $points = $_GET['points'];
-}
+// Embed the variable values in the HTML output
+echo "<div id='user-data' data-name='$name' data-level='$level' data-points='$points'></div>";
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +51,7 @@ if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['level']) && is
         </div> 
         <div>
           <button id="btn-atsijungti">Atsijungti</button>
-        <!-- Rekes vistiek ta scripta nesdint is cia -->
+        <!-- Reikes vistiek ta scripta nesdint is cia -->
         <script>
           const logoutButton = document.getElementById('btn-atsijungti');
           logoutButton.addEventListener('click', () => {
@@ -109,12 +112,18 @@ if (isset($_GET['name'])) {
       <div class="" id="dot-answer"></div>
       <div class="" id="dot-answer-lenght"></div>
 
-      <form action="" id="answer-form" method="post">
+      <form action="a_index.php?name=<?php echo urlencode($_GET['name']); ?>" id="answer-form" method="post">
         <label for="answer-input">Atsakymas:</label>
         <input type="text" id="answer-input" name="answer-input" />
-        <button class="submit-btn" type="submit-answer">Submit</button>
+        <button class="submit-btn" type="submit">Submit</button>
       </form>
     </main>
+
+    <section>
+      <div><?php echo $name?>:</div>
+      <div id="answer"></div>
+    </section>
+
 
     <script type="text/javascript" src="http://localhost/aldas/Viktorina.live/a_index.js"></script>
     <footer class="footer">

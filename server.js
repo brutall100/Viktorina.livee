@@ -28,7 +28,6 @@ const generateBonus = () => {
   }, interval);
 };
 
-
 generateBonus();
 
 
