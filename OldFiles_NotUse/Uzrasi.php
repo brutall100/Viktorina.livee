@@ -19,6 +19,13 @@
 <!-- 7 -->
 <!-- Full screen api ,kad vaizdas butu per visa ekrana -->
 
+<!-- 8 -->
+<!-- Reikia padaryti kad command promt prasidetu nuo C:\xampp\htdocs\aldas\Viktorina.live>node startServers.js
+Tai pat pasidometi serverio auto ijungimu -->
+
+
+
+
 <!-- Recapha    apsauga -->
 reCAPTCHA is a free service from Google that helps protect websites from spam and abuse. It uses advanced risk analysis techniques to tell humans and bots apart. With the new API, a significant number of your valid human users will pass the reCAPTCHA challenge without having to solve a CAPTCHA. reCAPTCHA offers more than just spam protection. It can also be used for security purposes like to prevent bots from trying to login to your site.
 

@@ -183,7 +183,7 @@ const handleUserAnswer = async (userAnswer) => {
   const userAnswerLower = userAnswer.toLowerCase();
 
   if (userAnswerLower === correctAnswer) {
-    const litaPoints = parseInt(data.data.lita, 10);
+    const litaPoints = parseInt(data.data.lita, 10) + parseInt(data.data.bonusLita, 10);
     userData.points = litaPoints.toString();
     const successMsg = `Atsakymas "${userAnswer}" yra teisingas! Atsake teisingai ${userData.name}`;
     document.getElementById('answer').textContent = successMsg;
