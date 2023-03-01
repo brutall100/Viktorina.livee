@@ -119,7 +119,7 @@ if (isset($_GET['name'])) {
       </form>
     </main>
 
-    <section>
+    <section class="section-answer">
       <div><?php echo $name?>:</div>
       <div id="answer"></div>
     </section>

@@ -143,65 +143,92 @@ if (bonusLita > 0) {
 }
 
 
+                  //Atsakymas
+const userData = {
+  name: '',
+  level: '',
+  points: ''
+};
 
-// Get the user data element
-const userDataElement = document.getElementById('user-data');
+const populateUserData = () => {
+  const userDataElement = document.getElementById('user-data');
+  userData.name = userDataElement.dataset.name;
+  userData.level = userDataElement.dataset.level;
+  userData.points = userDataElement.dataset.points;
+}
 
-// Get the user data from the data attributes
-const namep = userDataElement.dataset.name;
-const levelp = userDataElement.dataset.level;
-const pointsp = userDataElement.dataset.points;
+populateUserData();
 
-// Log the user data to the console for debugging purposes
-console.log('User data:', namep, levelp, pointsp);
-
-
-//               Atsakymas
 const answerForm = document.getElementById('answer-form');
 
-answerForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // prevent form submission
+answerForm.addEventListener('submit', (event) => {
+  event.preventDefault();
   const answerInput = document.getElementById('answer-input');
   const userAnswer = answerInput.value;
 
-  handleUserAnswer(userAnswer); // call the handleUserAnswer function with the user's answer as an argument
+  handleUserAnswer(userAnswer);
 
-  // clear the answer input field
   answerInput.value = '';
 });
 
-
-
-async function handleUserAnswer(userAnswer) {
+const handleUserAnswer = async (userAnswer) => {
   const data = await fetchData();
-  // Check if the answer property exists in the data object
+
   if (!data || !data.data || !data.data.answer) {
     console.error('Answer not found in data object');
     return;
   }
-  // Get the correct answer from the data object
-  const correctAnswer = data.data.answer.toLowerCase();
 
-  // Convert the user's answer to lowercase for case-insensitive comparison
+  const correctAnswer = data.data.answer.toLowerCase();
   const userAnswerLower = userAnswer.toLowerCase();
 
-  // Compare the user's answer with the correct answer
   if (userAnswerLower === correctAnswer) {
+    const litaPoints = parseInt(data.data.lita, 10);
+    userData.points = litaPoints.toString();
+    const successMsg = `Atsakymas "${userAnswer}" yra teisingas! Atsake teisingai ${userData.name}`;
+    document.getElementById('answer').textContent = successMsg;
 
-    // alert("Atsakymas  yra teisingas!");
-    document.getElementById('answer').textContent = `Atsakymas "${userAnswer}" yra teisingas! Atsake teisingai ${namep}`;
+    // Send HTTP POST request to update user's points
+    const url = 'http://localhost:8000/a_points.js';
+    const body = JSON.stringify({
+      user_id_name: userData.name,
+      points: litaPoints
+    });    
 
-    // Update the points and bonus points counters
-    // updatePoints(data.data.lita);
-    // updateBonusPoints(data.data.bonusLita);
+    const headers = {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    };
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers,
+      body
+    });
+
+    if (response.ok) {
+      const { user_id_name, points } = await response.json();
+      console.log(`User points updated successfully ${points}`);
+      console.log("user_id_name: " + user_id_name);
+      console.log("points: " + points);
+    } else {
+      console.error('Failed to update user points');
+    }
   } else {
-
-    // alert("Atsakymas yra neteisingas. Bandykite dar kartą.");
-    document.getElementById('answer').textContent = `Atsakymas "${userAnswer}" yra neteisingas. Bandykite dar kartą.`;
+    const errorMsg = `Atsakymas "${userAnswer}" yra neteisingas. Bandykite dar kartą.`;
+    document.getElementById('answer').textContent = errorMsg;
   }
 
   document.getElementById('answer-input').value = '';
-}
+};
+
+
+                  
+
+
+
+
+
+
 
 
 

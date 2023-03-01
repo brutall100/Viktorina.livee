@@ -1,5 +1,5 @@
 <!-- 1 uzduotis -->
-<!--  -->
+<!--  Gal start server,then user logins-->
 
 <!-- 2 -->
 <!-- Pasidaryti svaria php ir javaScript registracijos kopija githube su pasijungimu i xampp -->

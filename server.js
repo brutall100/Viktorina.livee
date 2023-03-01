@@ -27,7 +27,6 @@ const generateBonus = () => {
     }
   }, interval);
 };
-
 generateBonus();
 
 
@@ -38,7 +37,6 @@ const refreshData = (callback) => {
     password: '',
     database: 'viktorina'
   });
-
   connection.connect();
 
   const sql = 'SELECT id, question, answer FROM question_answer ORDER BY RAND() LIMIT 1';

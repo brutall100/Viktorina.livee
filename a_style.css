@@ -66,6 +66,11 @@ body {
     font-style: italic;
 }
 
+#answer{
+  border:1px solid orange;
+  top:50px;
+}
+
 #answer-form {
     display: flex;
     flex-direction: column;
@@ -173,7 +178,21 @@ img {
       } */
  } 
   
- 
+ .section-answer{
+  border:1px solid red;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
  
  /* Chat container */
  #chat-container {
