@@ -29,7 +29,6 @@ const generateBonus = () => {
 };
 generateBonus();
 
-
 const refreshData = (callback) => {
   const connection = mysql.createConnection({
     host: 'localhost',
@@ -52,13 +51,46 @@ const refreshData = (callback) => {
       bonusLita: bonusLita
     };
 
-    
     console.log(cachedData);
     connection.end();
     callback(cachedData);
-    
   });
 };
+
+const checkLitaiSum = () => {
+  setInterval(() => {
+    const connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'viktorina'
+    });
+
+    connection.connect();
+
+    const sql = 'SELECT litai_sum FROM super_users';
+
+    connection.query(sql, (err, results) => {
+      if (err) throw err;
+
+      const litaiSum = results[0].litai_sum;
+
+      if (litaiSum && litaiSum !== cachedData.litai_sum) {
+        console.log(`Refreshing data due to change in litai_sum: ${litaiSum}`);
+        refreshData((data) => {
+          cachedData = data;
+        });
+      }
+    });
+
+    connection.end();
+    
+    console.log('Checking litai_sum at', new Date());
+  }, 5000); // interval of 5 seconds
+};
+
+checkLitaiSum();
+
 
 
 
@@ -75,18 +107,18 @@ app.get('/data', (req, res) => {
   } else {
     res.send({
       data: cachedData,
-          });
+    });
   }
 });
 
-
 setInterval(() => {
   refreshData(() => {});
-  }, 60000);
+}, 60000);
 
 app.listen(port, () => {
   console.log(`Serveris prisijunges on http://localhost:${port}`);
 });
+
 
 
 

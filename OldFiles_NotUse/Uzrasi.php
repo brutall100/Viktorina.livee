@@ -23,6 +23,9 @@
 <!-- Reikia padaryti kad command promt prasidetu nuo C:\xampp\htdocs\aldas\Viktorina.live>node startServers.js
 Tai pat pasidometi serverio auto ijungimu -->
 
+<!-- 9 -->
+<!-- sukurti ikoneles useriams su daug litu,galima butu
+nusipirkti is storo uz litus -->
 
 
 
