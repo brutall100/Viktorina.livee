@@ -57,6 +57,10 @@ const refreshData = (callback) => {
   });
 };
 
+
+
+let previousLitaiSum = null;
+
 const checkLitaiSum = () => {
   setInterval(() => {
     const connection = mysql.createConnection({
@@ -73,21 +77,29 @@ const checkLitaiSum = () => {
     connection.query(sql, (err, results) => {
       if (err) throw err;
 
-      const litaiSum = results[0].litai_sum;
+      const litaiSums = results.map((result) => result.litai_sum);
+      const totalLitaiSum = litaiSums.reduce((sum, litaiSum) => sum + litaiSum, 0);
 
-      if (litaiSum && litaiSum !== cachedData.litai_sum) {
-        console.log(`Refreshing data due to change in litai_sum: ${litaiSum}`);
+      console.log(`Total litai sum: ${totalLitaiSum}`);
+
+      if (previousLitaiSum !== null && totalLitaiSum !== previousLitaiSum) {
+        console.log(`Refreshing data due to change in litai_sum: ${totalLitaiSum}`);
         refreshData((data) => {
           cachedData = data;
         });
       }
+
+      previousLitaiSum = totalLitaiSum;
     });
 
     connection.end();
     
     console.log('Checking litai_sum at', new Date());
-  }, 5000); // interval of 5 seconds
+  }, 10000); // interval of 10 seconds
 };
+
+
+
 
 checkLitaiSum();
 
