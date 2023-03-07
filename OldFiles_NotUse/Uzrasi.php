@@ -90,4 +90,4 @@ You need to replace 'your_secret_key' with the Secret key that you obtained from
 This is just a basic example of how to add a reCAPTCHA to your form, you can customize it according to your requirements.
 
 <!-- / -->
-<!-- /We are going good way.    If const userAnswer = answerInput.value; === the data from async console.log('Answer:', data.data.answer);  it gets console.log('Litan:', data.data.lita); / -->
+<!--           / -->

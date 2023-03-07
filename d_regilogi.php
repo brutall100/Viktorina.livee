@@ -38,7 +38,7 @@
         <div class="form-group">
         <label for="gender-select">Lytis:</label>
         <select id="gender-select" name="gender">
-          <option value="">Pasirinkite savo lytį</option>
+          <option value="Nepasirinkta">Pasirinkite savo lytį</option>
           <option value="Vyras">Vyras</option>
           <option value="Moteris">Moteris</option>
           <option value="Abinary">Abinary</option>
@@ -99,7 +99,6 @@
           <option value="Non-binary">Non-binary</option>
           <option value="Non-binary transgender">Non-binary transgender</option>
           <option value="Omnigender">Omnigender</option>
-          <option value="Other">Other</option>
           <option value="Pangender">Pangender</option>
           <option value="Polygender">Polygender</option>
           <option value="Person of transgendered experience">Person of transgendered experience</option>
@@ -130,7 +129,7 @@
           <option value="Vakasalewalewa">Vakasalewalewa</option>
           <option value="Woman">Woman</option>
           <option value="Woman of trans experience">Woman of trans experience</option>
-          <option value="X-gender">X-gender</option>
+          <option value="X-gender">X-gender</option> 
           <option value="Xenogender">Xenogender</option>
           <option value="Other">Other</option>
         </select>

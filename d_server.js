@@ -45,13 +45,23 @@ app.post('/login', (req, res) => {
 
 
 app.post('/register', (req, res) => {
-  const { nick_name, user_email, user_password } = req.body;
+  const { nick_name, user_email, user_password, gender, other_gender } = req.body;
+
   bcrypt.hash(user_password, 10, (err, hashedPassword) => {
     if (err) throw err;
-    const currentDate = new Date().toISOString().slice(0, 20); // Get the current date in YYYY-MM-DD format
-    const sql = `INSERT INTO super_users (nick_name, user_email, user_password, registration_date, user_lvl) VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s'), 0)`;
 
-    connection.query(sql, [nick_name, user_email, hashedPassword, currentDate], (err, result) => {
+    const currentDate = new Date().toISOString().slice(0, 20); // Get the current date in YYYY-MM-DD format
+
+    let genderValue = '';
+    if (gender === 'Other') {
+      genderValue = other_gender;
+    } else {
+      genderValue = gender;
+    }
+
+    const sql = `INSERT INTO super_users (nick_name, user_email, user_password, registration_date, user_lvl, gender_super) VALUES (?, ?, ?, DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i:%s'), 0, ?)`;
+
+    connection.query(sql, [nick_name, user_email, hashedPassword, genderValue], (err, result) => {
       if (err) {
         if (err.code === 'ER_DUP_ENTRY') {
           // handle duplicate entry error
