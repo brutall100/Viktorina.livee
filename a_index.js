@@ -185,26 +185,26 @@ const handleUserAnswer = async (userAnswer) => {
   if (userAnswerLower === correctAnswer) {
     const litaPoints = parseInt(data.data.lita, 10) + parseInt(data.data.bonusLita, 10);
     userData.points = litaPoints.toString();
-    const successMsg = `Atsakymas "${userAnswer}" yra teisingas! Atsake teisingai ${userData.name}`;
-    document.getElementById('answer').textContent = successMsg;
-
+    const successMsg = `Teisingai atsakė ${userData.name}: <span class="special-atsakymas" style="color: green; font-weight: bold">${userAnswer}</span> ${userData.name} gauna ${litaPoints} litų`;
+    document.getElementById('answer').innerHTML = successMsg;
+  
     // Send HTTP POST request to update user's points
     const url = 'http://localhost:8000/a_points.js';
     const body = JSON.stringify({
       user_id_name: userData.name,
       points: litaPoints
     });    
-
+  
     const headers = {
       'Content-Type': 'application/x-www-form-urlencoded'
     };
-
+  
     const response = await fetch(url, {
       method: 'POST',
       headers,
       body
     });
-
+  
     if (response.ok) {
       const { user_id_name, points } = await response.json();
       console.log(`User points updated successfully ${points}`);
@@ -213,13 +213,22 @@ const handleUserAnswer = async (userAnswer) => {
     } else {
       console.error('Failed to update user points');
     }
+  
+    const answerInput = document.getElementById('answer-input');
+    answerInput.disabled = true;
+    setTimeout(() => {
+      answerInput.disabled = false;
+    }, 4000); // Disable answerInput for 4 seconds
   } else {
     const errorMsg = `Atsakymas "${userAnswer}" yra neteisingas. Bandykite dar kartą.`;
     document.getElementById('answer').textContent = errorMsg;
   }
+  
 
   document.getElementById('answer-input').value = '';
 };
+
+
 
 
                   

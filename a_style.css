@@ -71,6 +71,12 @@ body {
   top:50px;
 }
 
+/* .special-atsakymas {
+  color: red;
+  font-weight: bold;
+} */
+
+
 #answer-form {
     display: flex;
     flex-direction: column;
