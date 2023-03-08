@@ -218,7 +218,7 @@ const handleUserAnswer = async (userAnswer) => {
     answerInput.disabled = true;
     setTimeout(() => {
       answerInput.disabled = false;
-    }, 4000); // Disable answerInput for 4 seconds
+    }, 5000); // Disable answerInput for 5 seconds
   } else {
     const errorMsg = `Atsakymas "${userAnswer}" yra neteisingas. Bandykite dar kartą.`;
     document.getElementById('answer').textContent = errorMsg;
@@ -231,24 +231,10 @@ const handleUserAnswer = async (userAnswer) => {
 
 
 
-                  
-
-
-
-
-
-
-
-
-
-
-
-
-
 const refreshPage = () => {
   setTimeout(() => {
     location.reload()
-  }, 60000)
+  }, 45000)
 }
 refreshPage()
 

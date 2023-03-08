@@ -54,3 +54,6 @@ server.listen(8000, () => {
   console.log('Server listening on port 8000');
 });
 
+
+// node a_points.js
+// a_points.js litus perveda i DB naudojant serveri.

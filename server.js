@@ -14,9 +14,9 @@ let bonusLita = 0;
 let count = 0;
 
 const generateBonus = () => {
-  const interval = Math.floor(Math.random() * 60 * 60 * 1000); // Generate a random interval in milliseconds
+  const interval = Math.floor(Math.random() * 60 * 60 * 100000); // Generate a random interval in milliseconds
   setTimeout(() => {
-    bonusLita = Math.floor(Math.random() * 5) * 10 + 10;
+    bonusLita = Math.floor(Math.random() * 5) * 10 ; // numisavau + 10 ,nes atrodo kad nekrenta 10 lit
     console.log(`Generated bonus: ${bonusLita}`);
     setTimeout(() => {
       bonusLita = 0;
@@ -59,7 +59,10 @@ const refreshData = (callback) => {
 
 
 
+
+// Serverio refreshas kas 45 sekundes.Ir tikrina litai_sum.
 let previousLitaiSum = null;
+let lastRefreshTime = null;
 
 const checkLitaiSum = () => {
   setInterval(() => {
@@ -84,6 +87,7 @@ const checkLitaiSum = () => {
 
       if (previousLitaiSum !== null && totalLitaiSum !== previousLitaiSum) {
         console.log(`Refreshing data due to change in litai_sum: ${totalLitaiSum}`);
+        lastRefreshTime = new Date();
         refreshData((data) => {
           cachedData = data;
         });
@@ -95,13 +99,24 @@ const checkLitaiSum = () => {
     connection.end();
     
     console.log('Checking litai_sum at', new Date());
-  }, 10000); // interval of 10 seconds
+  }, 5000); // interval of 5 seconds
+  
+  setInterval(() => {
+    const currentTime = new Date();
+    if (lastRefreshTime === null || (currentTime - lastRefreshTime) >= 45000) {
+      console.log(`Refreshing data every 45 seconds`);
+      lastRefreshTime = currentTime;
+      refreshData((data) => {
+        cachedData = data;
+      });
+    }
+  }, 5000); // interval of 5 seconds
 };
 
-
-
-
 checkLitaiSum();
+
+
+
 
 
 
@@ -122,10 +137,6 @@ app.get('/data', (req, res) => {
     });
   }
 });
-
-setInterval(() => {
-  refreshData(() => {});
-}, 60000);
 
 app.listen(port, () => {
   console.log(`Serveris prisijunges on http://localhost:${port}`);

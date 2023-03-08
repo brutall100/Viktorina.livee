@@ -32,8 +32,8 @@ nusipirkti is storo uz litus,plius gender ikoneles.Taippat galima pirkti store -
 <!-- Kosmetinis saito sutvarkymas .Dizaino paieskos ir.t.t -->
 
 <!-- 11 -->
-<!-- sutvarkyti serverio laikus normaliai + a_index.js turi sekti ar pus
-lapyje esantis ir duomenu bazeje esantis klausimas vienodi -->
+<!-- Dar reikes pasekti serverio laikus, sinchronizacija su a_index.js   
+Gal reikes po puse sekundes uzmesti ar numesti. -->
 
 <!-- 12 -->
 <!-- sukurti 5 geimusmus -->
@@ -43,6 +43,11 @@ lapyje esantis ir duomenu bazeje esantis klausimas vienodi -->
 
 <!-- 14 -->
 <!-- Raides eitu i kvadratukus,kad nurodytu raidziu kieki atsakyme -->
+
+<!-- 15 -->
+<!-- Sutvarkyti Lt raide S-š i-į ir t.t -->
+
+
 
 <!-- Recapha    apsauga -->
 reCAPTCHA is a free service from Google that helps protect websites from spam and abuse. It uses advanced risk analysis techniques to tell humans and bots apart. With the new API, a significant number of your valid human users will pass the reCAPTCHA challenge without having to solve a CAPTCHA. reCAPTCHA offers more than just spam protection. It can also be used for security purposes like to prevent bots from trying to login to your site.
