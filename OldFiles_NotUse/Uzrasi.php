@@ -5,9 +5,8 @@
 <!-- Pasidaryti svaria php ir javaScript registracijos kopija githube su pasijungimu i xampp -->
 
 <!-- 3 -->
-<!-- Registruojabtis pasirinkti lyti is 70 pasirinkimu + 1 irasyti savo
-Sutvarkyti registruojantis i duobaze irasyti lyti.
-Paprasciau bus palikti kelias lytis ir sutvarkyti koda -->
+<!-- Teisingi ir neteisingi klausimai eina i kazkoki chatuka,
+turbut su duombaze kazkuram laijkui arba su scrolu iki 20 ar 30 paskutiniu irasu-->
 
 <!-- 4 -->
 <!-- Question waiting sutvarkyti, kad klausimai su upvotais pereitu i pagrindine db -->
@@ -42,7 +41,8 @@ lapyje esantis ir duomenu bazeje esantis klausimas vienodi -->
 <!-- 13 -->
 <!-- Sutvarkyti litu galunes  Teisingai atsakė tadas: Gagarinas tadas gauna 52 litų -->
 
-
+<!-- 14 -->
+<!-- Raides eitu i kvadratukus,kad nurodytu raidziu kieki atsakyme -->
 
 <!-- Recapha    apsauga -->
 reCAPTCHA is a free service from Google that helps protect websites from spam and abuse. It uses advanced risk analysis techniques to tell humans and bots apart. With the new API, a significant number of your valid human users will pass the reCAPTCHA challenge without having to solve a CAPTCHA. reCAPTCHA offers more than just spam protection. It can also be used for security purposes like to prevent bots from trying to login to your site.
