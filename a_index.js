@@ -1,4 +1,4 @@
-let data;
+// let data;
 async function fetchData() {
   try {
     const response = await axios.get('http://localhost:3000/data');
@@ -210,6 +210,11 @@ const handleUserAnswer = async (userAnswer) => {
       console.log(`User points updated successfully ${points}`);
       console.log("user_id_name: " + user_id_name);
       console.log("points: " + points);
+
+      setTimeout(() => {
+        location.reload();
+      }, 5100); // Perkrauna page po 5 sekundziu.Kazkada gali buti problemu,gal reikes ilginti laika
+      
     } else {
       console.error('Failed to update user points');
     }
