@@ -32,7 +32,9 @@ nusipirkti is storo uz litus,plius gender ikoneles.Taippat galima pirkti store -
 <!-- Kosmetinis saito sutvarkymas .Dizaino paieskos ir.t.t -->
 
 <!-- 11 -->
-<!-- Dar reikes pasekti serverio laikus, sinchronizacija su a_index.js   
+<!-- Reikia  sinchronizacijos jei,nebuvo nei teisingo-nei neteisingo klausimo varianto
+ su a_index.js  .Padryti sinchronizacija jei buvo speta ,bet natspeta
+ nors tada pabegs irasytas tekstas NEGERAI 
 Gal reikes po puse sekundes uzmesti ar numesti. -->
 
 <!-- 12 -->
@@ -46,6 +48,12 @@ Gal reikes po puse sekundes uzmesti ar numesti. -->
 
 <!-- 15 -->
 <!-- Sutvarkyti Lt raide S-š i-į ir t.t -->
+
+<!--16 -->
+<!-- Padaryti kad persikrovus page, kad atskymo impute butu pagaliukas,pasiruoses klausimo irasymui. -->
+
+<!-- 17 -->
+<!-- Uz klausimo irasyma 10 litu + Ikonele kokia 1 savatei klausimu irasytojas + mini taisykles -->
 
 
 
