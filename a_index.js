@@ -1,4 +1,4 @@
-// let data;
+
 async function fetchData() {
   try {
     const response = await axios.get('http://localhost:3000/data');
@@ -57,11 +57,11 @@ async function displayQuestion(data) {
       dotsElement.innerHTML += `${underscore}`;
     }
   }
-    displayLettersWithDelay(answersElement, data.data.answer, 3000);
+    displayLettersWithDelay(answersElement, data.data.answer, 8000);
 }
 async function displayLettersWithDelay(element, string, delay) {
   for (let i = 0; i < 4; i++) {
-    await new Promise((resolve) => setTimeout(resolve, 5000 + delay * i));
+    await new Promise((resolve) => setTimeout(resolve, delay));
     element.innerHTML += string[i];
   }
 }
@@ -213,7 +213,7 @@ const handleUserAnswer = async (userAnswer) => {
 
       setTimeout(() => {
         location.reload();
-      }, 5100); // Perkrauna page po 5 sekundziu.Kazkada gali buti problemu,gal reikes ilginti laika
+      }, 5000); // Perkrauna page po 5 sekundziu
       
     } else {
       console.error('Failed to update user points');
@@ -223,7 +223,7 @@ const handleUserAnswer = async (userAnswer) => {
     answerInput.disabled = true;
     setTimeout(() => {
       answerInput.disabled = false;
-    }, 5000); // Disable answerInput for 5 seconds
+    }, 6000); // Disable answerInput for 6 seconds
   } else {
     const errorMsg = `Atsakymas "${userAnswer}" yra neteisingas. Bandykite dar kartą.`;
     document.getElementById('answer').textContent = errorMsg;
