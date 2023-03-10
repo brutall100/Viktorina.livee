@@ -52,6 +52,7 @@ const refreshData = (callback) => {
     };
 
     console.log(cachedData);
+    console.log(cachedData.id);
     connection.end();
     callback(cachedData);
   });

@@ -1,3 +1,4 @@
+let data;
 
 async function fetchData() {
   try {
@@ -9,7 +10,7 @@ async function fetchData() {
 }
 
 (async function() {
-  const data = await fetchData();
+  data = await fetchData();
   console.log('Data:', data);
   console.log('Question:', data.data.question);
   console.log('ID:', data.data.id);
@@ -30,6 +31,31 @@ async function fetchData() {
   bonusLitaContainer.innerHTML = data.data.bonusLita;
   
 })();
+
+function checkServerData() {
+  axios.get('http://localhost:3000/data')
+    .then(response => {
+      const serverData = response.data.data;
+      const serverId = serverData.id;
+      const clientId = data.data.id;
+
+      if (serverId === clientId) {
+        console.log('Server id matches client id.');
+        // Do something
+      } else {
+        console.log('Server id does not match client id. Reloading in 1 seconds...');
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+setInterval(checkServerData, 500); // call the function every 0.5 seconds
+
 
 
                       // Rodyti klausima
