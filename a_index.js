@@ -58,6 +58,12 @@ setInterval(checkServerData, 500); // call the function every 0.5 seconds
 
 
 
+window.onload = function() {
+  document.getElementById("answer-input").focus();
+};
+
+
+
                       // Rodyti klausima
 async function displayQuestion(data) {
   const questionElement = document.getElementById("question");
@@ -263,7 +269,7 @@ const handleUserAnswer = async (userAnswer) => {
 
     setTimeout(() => {
       location.reload();
-    }, 2000); // Disable answerInput for 2 seconds
+    }, 2000); // Reload after 2 seconds
 
   }
   
@@ -274,12 +280,12 @@ const handleUserAnswer = async (userAnswer) => {
 
 
 
-const refreshPage = () => {
-  setTimeout(() => {
-    location.reload()
-  }, 45000)
-}
-refreshPage()
+// const refreshPage = () => {
+//   setTimeout(() => {
+//     location.reload()
+//   }, 45000)
+// }
+// refreshPage()
 
 
 

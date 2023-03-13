@@ -32,10 +32,7 @@ nusipirkti is storo uz litus,plius gender ikoneles.Taippat galima pirkti store -
 <!-- Kosmetinis saito sutvarkymas .Dizaino paieskos ir.t.t -->
 
 <!-- 11 -->
-<!-- Reikia  sinchronizacijos jei,nebuvo nei teisingo-nei neteisingo klausimo varianto
- su a_index.js  .Padryti sinchronizacija jei buvo speta ,bet natspeta
- nors tada pabegs irasytas tekstas NEGERAI 
-Gal reikes po puse sekundes uzmesti ar numesti. -->
+<!-- Reikia else dadeti, niekas neatsake teisingai. Kitas klausimas po 3 sekundziu -->
 
 <!-- 12 -->
 <!-- sukurti 5 geimusmus -->
