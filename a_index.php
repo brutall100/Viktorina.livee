@@ -119,29 +119,11 @@ if (isset($_GET['name'])) {
       </form>
     </main>
 
+
     <section class="section-answer">
       <div><?php echo $name?>:</div>
       <div id="answer"></div>
     </section>
-
-    <p>BU</p>
-
-
-
-    <section class="old-question-section">
-      <div class="old-question">
-        <ul class="old-question-data-class" id="old-question-data-id" >
-          <li></li>      
-          <li></li>      
-          <li></li>      
-        </ul>
-      </div>
-    </section>
-
-
-
-
-
 
     <script type="text/javascript" src="http://localhost/aldas/Viktorina.live/a_index.js"></script>
     <footer class="footer">
