@@ -58,9 +58,11 @@ setInterval(checkServerData, 500); // call the function every 0.5 seconds
 
 
 
+
 window.onload = function() {
   document.getElementById("answer-input").focus();
 };
+
 
 
 
@@ -203,6 +205,29 @@ answerForm.addEventListener('submit', (event) => {
   answerInput.value = '';
 });
 
+
+const recentData = JSON.parse(localStorage.getItem('recentData'));
+
+function displayRecentData() {
+  const recentDataList = document.getElementById('recent-data-list');
+  recentDataList.innerHTML = '';
+
+  if (!recentData || recentData.length === 0) {
+    recentDataList.innerHTML = '<li>No recent data found</li>';
+    return;
+  }
+
+  for (const dataObj of recentData) {
+    const timestamp = new Date(dataObj.timestamp).toLocaleString();
+    const listItem = document.createElement('li');
+    listItem.textContent = `${dataObj.id} ${dataObj.question} was ${dataObj.answer} ${timestamp}`;
+    recentDataList.appendChild(listItem);
+  }
+}
+
+displayRecentData();
+
+
 const handleUserAnswer = async (userAnswer) => {
   const data = await fetchData();
 
@@ -257,7 +282,18 @@ const handleUserAnswer = async (userAnswer) => {
       answerInput.disabled = false;
     }, 6000); // Disable answerInput for 6 seconds
   } else {
-        const answerInput = document.getElementById('answer-input');
+    // Add current data object to recentData array
+    const { id, question, answer } = data.data;
+    recentData.push({ id, question, answer });
+
+    // Remove oldest data object if array has more than 5 items
+    if (recentData.length > 5) {
+      recentData.shift();
+    }
+
+    displayRecentData();
+
+    const answerInput = document.getElementById('answer-input');
     answerInput.disabled = true;
 
     const errorMsg = `Atsakymas "${userAnswer}" yra neteisingas. Bandykite dar kartą.`;
@@ -272,20 +308,15 @@ const handleUserAnswer = async (userAnswer) => {
     }, 2000); // Reload after 2 seconds
 
   }
-  
 
   document.getElementById('answer-input').value = '';
+
+  // Store recent data in local storage
+  localStorage.setItem('recentData', JSON.stringify(recentData));
 };
 
 
 
-
-// const refreshPage = () => {
-//   setTimeout(() => {
-//     location.reload()
-//   }, 45000)
-// }
-// refreshPage()
 
 
 
