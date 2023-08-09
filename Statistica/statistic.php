@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (isset($_GET['name'])) {
-  $name = $_GET['name'];
+if (isset($_SESSION['nick_name'])) {
+  $name = $_SESSION['nick_name'];
   $conn = mysqli_connect("localhost", "root", "", "viktorina");
   $query = "SELECT user_lvl, litai_sum, litai_sum_today, gender_super, user_email FROM super_users WHERE nick_name = '$name'";
   $result = mysqli_query($conn, $query);
@@ -62,8 +62,9 @@ if (isset($_GET['name'])) {
     echo "Toks vartotojas nerastas!<br>";
   }
 
-  // Destroy the session after 15 seconds
-  header('Refresh: 15; URL=http://localhost/aldas/Viktorina.live/d_regilogi.php');
+  // Destroy session and clear variables after 15 seconds
+  header('Refresh: 15; URL=http://localhost/Viktorina.live/d_regilogi.php');
+  session_unset();  
   session_destroy();
 
 
@@ -170,7 +171,7 @@ if (isset($_GET['name'])) {
             document.getElementById('countdown').textContent = seconds;
             if (seconds <= 0) {
               clearInterval(countdown);
-              window.location.href = 'http://localhost/aldas/Viktorina.live/d_regilogi.php';
+              window.location.href = 'http://localhost/Viktorina.live/d_regilogi.php';
             }
           }, 1000);
         </script>";
