@@ -5,18 +5,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="http://localhost/aldas/Viktorina.live/d_regilogi.css" />
+  <link rel="stylesheet" href="http://localhost/Viktorina.live/d_regilogi.css" />
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <meta http-equiv="refresh" content="600"><!-- Auto refresh 10 min -->
   <title>Registracija ir Prisijungimas</title>
-
-  <style>
-
- </style>
-
-
-
-
 </head>
 
 <body>
@@ -181,13 +173,13 @@
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
-          <img class="logo" src="http://localhost/aldas/Viktorina.live/images/icons/vk9.jpg" alt="viktorina-logo" aria-label="Viktorina logotipas, kvadratas su išdėstytomis figūromis " />
+          <img class="logo" src="http://localhost/Viktorina.live/images/icons/vk9.jpg" alt="viktorina-logo" aria-label="Viktorina logotipas, kvadratas su išdėstytomis figūromis " />
           <h1>Sveiki sugrįžę!</h1>
           <p>Prašome prisijungti.</p>
           <button class="ghost" id="signIn">Prisijungimas</button>
         </div>
         <div class="overlay-panel overlay-right">
-          <img class="logo" src="http://localhost/aldas/Viktorina.live/images/icons/vk9.jpg" alt="viktorina-logo" aria-label="Viktorina logotipas, kvadratas su išdėstytomis figūromis " />
+          <img class="logo" src="http://localhost/Viktorina.live/images/icons/vk9.jpg" alt="viktorina-logo" aria-label="Viktorina logotipas, kvadratas su išdėstytomis figūromis " />
           <h1>Labas, Drauge!</h1>
           <p>Įveskite savo asmeninius duomenis ir pradėkite kelionę su mumis.</p>
           <button class="ghost" id="signUp">Registracija</button>
@@ -199,36 +191,21 @@
   <!-- Modal -->
   <div class="modal" id="forgotPasswordModal">
     <div class="modal-content">
-      <button id="close-modal">✕</button> <!-- Close button -->
+      <button id="close-modal">✕</button> 
       <h2>Ei, tai slaptažodžio priminimo nuoroda 🕵️‍♂️</h2>
       <p>Rodos, tarsi jūsų slaptažodis atostogauja! Padėsime jam sugrįžti.</p>
-      <form method="POST" action="http://localhost:7700/reset-password">  
+      <form method="POST" action="http://localhost:4000/reset-password">  
         <label for="email">El. paštas:</label>
-        <input type="email" id="email" name="user_email" required>
-        <button type="submit">Siūsti priminimą</button>
+        <input type="email" id="email" class="centered-input" name="user_email" required>
+        <div class="button-container">
+          <button type="submit">Siųsti priminimą</button>
+        </div>
       </form>
     </div>
   </div>
 
-  <!-- <script>
-    // JavaScript to show the modal
-    const forgotPasswordLink = document.querySelector('.forgot-password');
-    const modal = document.getElementById('forgotPasswordModal');
-    const closeModalButton = modal.querySelector('#close-modal');
-
-    forgotPasswordLink.addEventListener('click', function(event) {
-      event.preventDefault();
-      modal.style.display = 'block';
-    });
-
-    closeModalButton.addEventListener('click', function() {
-      modal.style.display = 'none';
-    });
-  </script> -->
-
-
-  <script src="http://localhost/aldas/Viktorina.live/d_regilogi.js"></script>
-  <script src="http://localhost/aldas/Viktorina.live/d_regilogi_nameGenerator.js"></script>
+  <script src="http://localhost/Viktorina.live/d_regilogi.js"></script>
+  <script src="http://localhost/Viktorina.live/d_regilogi_nameGenerator.js"></script>
   <footer></footer>
 </body>
 
