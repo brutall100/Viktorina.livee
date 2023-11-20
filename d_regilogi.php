@@ -27,7 +27,7 @@
     <!-- Registracija -->
     <div class="form-container sign-up-container">
       <!-- <form method="POST" action="http://localhost:4000/register" id="register-form"> -->
-      <form method="POST" action="https://your-production-domain.com/register" id="register-form">
+      <form method="POST" action="http://194.5.157.208:4000/register" id="register-form">
         <h1 class="main-h1">Registracija</h1>
         <div class="form-group">
           <!-- <label for="gender-select">Lytis:</label> -->
@@ -160,7 +160,7 @@
 
     <!-- Prisijungimas -->
     <div class="form-container sign-in-container">
-      <form method="POST" action="http://localhost:4000/login">
+      <form method="POST" action="http://194.5.157.208:4000/login">
         <h1 class="main-h1">Prisijungti</h1>
         <!-- <span>or use your account</span> -->
         <input type="text" placeholder="Slapyvardis" name="nick_name" required />
@@ -195,7 +195,7 @@
       <button id="close-modal">✕</button> 
       <h2>Ei, tai slaptažodžio priminimo nuoroda 🕵️‍♂️</h2>
       <p>Rodos, tarsi jūsų slaptažodis atostogauja! Padėsime jam sugrįžti.</p>
-      <form method="POST" action="http://localhost:4000/reset-password">  
+      <form method="POST" action="http://194.5.157.208:4000/reset-password">  
         <label for="email">El. paštas:</label>
         <input type="email" id="email" class="centered-input" name="user_email" required>
         <div class="button-container">
@@ -205,8 +205,8 @@
     </div>
   </div>
 
-  <script src=" d_regilogi.js"></script>
-  <script src=" d_regilogi_nameGenerator.js"></script>
+  <script src="d_regilogi.js"></script>
+  <script src="d_regilogi_nameGenerator.js"></script>
   <footer></footer>
 </body>
 
