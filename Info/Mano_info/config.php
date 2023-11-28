@@ -1,7 +1,8 @@
 <?php
 $config = array(
-    'host' => 'localhost',
-    'username' => 'root',
-    'password' => '',
-    'database' => 'viktorina'
+    $dbhost = '194.5.157.208', 
+    $dbuser = 'aldas_',
+    $dbpassword = 'Holzma100',
+    $dbname = 'viktorina',
+    $dbport = '3306'
 );
