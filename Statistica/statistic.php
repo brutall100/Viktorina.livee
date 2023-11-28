@@ -2,7 +2,8 @@
 session_start();
 if (isset($_SESSION['nick_name'])) {
   $name = $_SESSION['nick_name'];
-  $conn = mysqli_connect("localhost", "root", "", "viktorina");
+  
+  $conn = mysqli_connect("194.5.157.208", "aldas_", "Holzma100", "viktorina");
   $query = "SELECT 
     user_lvl,
     litai_sum,
@@ -245,7 +246,7 @@ WHERE
     document.getElementById('countdown').textContent = seconds;
     if (seconds <= 0) {
       clearInterval(countdown);
-      window.location.href = ' d_regilogi.php';
+      window.location.href = '/d_regilogi.php';
     }
   }
 
