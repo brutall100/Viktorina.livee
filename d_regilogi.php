@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+  <meta name="description"
+    content="Viktorina.live - Testuokite savo žinias ir uždirbkite litus šioje interaktyvioje viktorinoje. Prisijunkite dabar, konkuruokite ir laimėkite!">
+  <meta name="keywords"
+    content="Viktorina.live, protų žaidimas, interaktyvus, žinios, taškai, konkurencija, litai, protmūšis, lrt, draugas, litas, lt">
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +17,9 @@
 
 <body>
 
-<div class="header-youtube">
+  <!-- <div class="header-youtube">
     <iframe src="https://www.youtube.com/embed/CsFlJQ2R09I?si=FKjTmjRVCRR5LlH0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+</div> -->
 
   <div class="container-generator">
     <div class="generate-butons">
@@ -32,7 +36,6 @@
     <!-- Registracija -->
     <div class="form-container sign-up-container">
       <!-- <form method="POST" action="http://194.5.157.208:4000/register" id="register-form"> -->
-        <!-- http://localhost:4000/register" id="register-form" -->
       <form method="POST" action="http://localhost:4000/register" id="register-form">
         <h1 class="main-h1">Registracija</h1>
         <div class="form-group">
@@ -137,15 +140,6 @@
             <input type="text" id="other-gender-input" name="other_gender">
           </div>
         </div>
-        <script>
-          document.getElementById('gender-select').addEventListener('change', function() {
-            if (this.value === 'Other') {
-              document.getElementById('other-gender-container').style.display = 'block';
-            } else {
-              document.getElementById('other-gender-container').style.display = 'none';
-            }
-          });
-        </script>
 
         <div class="form-group">
           <input type="text" placeholder="Vardas" id="name-input" name="nick_name" required />
@@ -166,7 +160,7 @@
     <!-- Prisijungimas -->
     <div class="form-container sign-in-container">
       <!-- <form method="POST" action="http://194.5.157.208:4000/login"> -->
-        <form method="POST" action="http://localhost:4000/login">
+      <form method="POST" action="http://localhost:4000/login">
         <h1 class="main-h1">Prisijungti</h1>
         <!-- <span>or use your account</span> -->
         <input type="text" placeholder="Slapyvardis" name="nick_name" required />
@@ -180,13 +174,15 @@
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
-          <img class="logo" src="images/icons/VK_new3.png" alt="viktorina-logo" aria-label="Viktorina logotipas, Išpuošta, stilizuota V raidė. V simbolizuoja VIKTORINA " />
+          <img class="logo" src="images/icons/VK_new3.png" alt="viktorina-logo"
+            aria-label="Viktorina logotipas, Išpuošta, stilizuota V raidė. V simbolizuoja VIKTORINA " />
           <h1 class="overlay-h1">Sveiki sugrįžę!</h1>
           <p class="overlay-p">Prašome prisijungti.</p>
           <button class="ghost" id="signIn">Prisijungimas</button>
         </div>
         <div class="overlay-panel overlay-right">
-        <img class="logo" src="images/icons/VK_new3.png" alt="viktorina-logo" aria-label="Viktorina logotipas, Išpuošta, stilizuota V raidė. V simbolizuoja VIKTORINA " />
+          <img class="logo" src="images/icons/VK_new3.png" alt="viktorina-logo"
+            aria-label="Viktorina logotipas, Išpuošta, stilizuota V raidė. V simbolizuoja VIKTORINA " />
           <h1 class="overlay-h1">Labas, Drauge!</h1>
           <p class="overlay-p">Įveskite savo asmeninius duomenis ir pradėkite kelionę su mumis.</p>
           <button class="ghost" id="signUp">Registracija</button>
@@ -198,11 +194,11 @@
   <!-- Modal -->
   <div class="modal" id="forgotPasswordModal">
     <div class="modal-content">
-      <button id="close-modal">✕</button> 
+      <button id="close-modal">✕</button>
       <h2>Ei, tai slaptažodžio priminimo nuoroda 🕵️‍♂️</h2>
       <p>Rodos, tarsi jūsų slaptažodis atostogauja! Padėsime jam sugrįžti.</p>
       <!-- <form method="POST" action="http://194.5.157.208:4000/reset-password">   -->
-      <form method="POST" action="http://localhost:4000/reset-password">  
+      <form method="POST" action="http://localhost:4000/reset-password">
         <label for="email">El. paštas:</label>
         <input type="email" id="email" class="centered-input" name="user_email" required>
         <div class="button-container">
