@@ -48,23 +48,7 @@ $user_id = $_SESSION['user_id'] ?? "";
         <?php 
         
         // // Conection from Include
-          // $host='194.5.157.208';
-          // $user = 'aldas_';
-          // $password = 'Holzma100';
-          // $dbname = 'viktorina'; 
-        
-         /*
-          $host='127.0.0.1';
-		  $user = 'u605154248_aldas';
-          $password = 'Holzma100';
-          $dbname = 'u605154248_viktorina';
-         */
-
-          // $conn = mysqli_connect($host, $user, $password, $dbname);
-
-          // if (!$conn) {
-          //     die("Connection failed: " . mysqli_connect_error());
-          // }
+     
           mysqli_set_charset($conn, "utf8mb4");
           $sql = "SELECT id, user, question, answer, vote_count FROM $dbname.question_answer";
           $result = mysqli_query($conn, $sql);
